@@ -68,22 +68,15 @@ public class AplicativoEletronica {
         produtosPanel.setPreferredSize(new Dimension(600, 400));
         content.add(produtosPanel, "PRODUTOS_PANEL");
         
-        //campos de texto
-        JTextField txtNome = new JTextField();
-        txtNome.setBounds(140, 100, 200, 25);
-        produtosPanel.add(txtNome);
-
-        JTextField txtDescricao = new JTextField();
-        txtDescricao.setBounds(140, 136, 200, 25);
-        produtosPanel.add(txtDescricao);
-
-        JTextField txtPreco = new JTextField();
-        txtPreco.setBounds(140, 172, 200, 25);
-        produtosPanel.add(txtPreco);
-
+        //titulo
+        JLabel titleProdutos = new JLabel("PRODUTOS");
+        titleProdutos.setBounds(140, 40, 177, 36);
+        titleProdutos.setFont(new Font("Arial", Font.BOLD, 30));
+        produtosPanel.add(titleProdutos);
+        
         //botões
         JButton btnAdicionar = new JButton("Adicionar");
-        btnAdicionar.setBounds(350, 100, 100, 25);
+        btnAdicionar.setBounds(140, 87, 177, 25);
         btnAdicionar.setFont(new Font("Arial", Font.BOLD, 14));
         btnAdicionar.setBackground(new Color(64, 64, 64));
         btnAdicionar.setForeground(Color.WHITE);
@@ -91,23 +84,101 @@ public class AplicativoEletronica {
         btnAdicionar.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         btnAdicionar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                adicionarProduto();
+                JFrame adicionarProdutoFrame = new JFrame("Adicionar Produto");
+                adicionarProdutoFrame.setSize(400, 400);
+                adicionarProdutoFrame.setLocationRelativeTo(null);
+                adicionarProdutoFrame.getContentPane().setLayout(null);  
+                
+                //campos de texto
+                JTextField txtSku = new JTextField();
+                JTextField txtNome = new JTextField();
+                JTextField txtDescricao = new JTextField();
+                JTextField txtPrecoCusto = new JTextField();
+                JTextField txtPrecoVenda = new JTextField();
+                JTextField txtEstoqueDisponivel = new JTextField();
+                JTextField txtNomeCategoria = new JTextField();
+                JTextField txtNomeFornecedor = new JTextField();
+                
+                //labels
+                JLabel lblSku = new JLabel("SKU:");
+                JLabel lblNome = new JLabel("Nome:");
+                JLabel lblDescricao = new JLabel("Descrição:");
+                JLabel lblPrecoCusto = new JLabel("Preço de Custo:");
+                JLabel lblPrecoVenda = new JLabel("Preço de Venda:");
+                JLabel lblEstoqueDisponivel = new JLabel("Estoque Disponível:");
+                JLabel lblNomeCategoria = new JLabel("Nome da Categoria:");
+                JLabel lblNomeFornecedor = new JLabel("Nome do Fornecedor:");
+                
+                JButton btnSalvar = new JButton("Salvar");
+                btnSalvar.setFont(new Font("Arial", Font.BOLD, 14));
+                btnSalvar.setBackground(new Color(64, 64, 64));
+                btnSalvar.setForeground(Color.WHITE);
+                btnSalvar.setFocusPainted(false);
+                btnSalvar.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+                btnSalvar.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        //implementar logica e metodo de adiconar do rodrigo
+                    }
+                });
+                
+                lblSku.setBounds(10, 10, 100, 25);
+                txtSku.setBounds(120, 10, 250, 25);
+                
+                lblNome.setBounds(10, 45, 100, 25);
+                txtNome.setBounds(120, 45, 250, 25);
+                
+                lblDescricao.setBounds(10, 80, 100, 25);
+                txtDescricao.setBounds(120, 80, 250, 25);
+                
+                lblPrecoCusto.setBounds(10, 115, 100, 25);
+                txtPrecoCusto.setBounds(120, 115, 250, 25);
+                
+                lblPrecoVenda.setBounds(10, 150, 100, 25);
+                txtPrecoVenda.setBounds(120, 150, 250, 25);
+                
+                lblEstoqueDisponivel.setBounds(10, 185, 150, 25);
+                txtEstoqueDisponivel.setBounds(170, 185, 200, 25);
+                
+                lblNomeCategoria.setBounds(10, 220, 150, 25);
+                txtNomeCategoria.setBounds(170, 220, 200, 25);
+                
+                lblNomeFornecedor.setBounds(10, 255, 150, 25);
+                txtNomeFornecedor.setBounds(170, 255, 200, 25);
+                
+                btnSalvar.setBounds(150, 300, 100, 25);
+                
+                adicionarProdutoFrame.getContentPane().add(lblSku);
+                adicionarProdutoFrame.getContentPane().add(txtSku);
+                adicionarProdutoFrame.getContentPane().add(lblNome);
+                adicionarProdutoFrame.getContentPane().add(txtNome);
+                adicionarProdutoFrame.getContentPane().add(lblDescricao);
+                adicionarProdutoFrame.getContentPane().add(txtDescricao);
+                adicionarProdutoFrame.getContentPane().add(lblPrecoCusto);
+                adicionarProdutoFrame.getContentPane().add(txtPrecoCusto);
+                adicionarProdutoFrame.getContentPane().add(lblPrecoVenda);
+                adicionarProdutoFrame.getContentPane().add(txtPrecoVenda);
+                adicionarProdutoFrame.getContentPane().add(lblEstoqueDisponivel);
+                adicionarProdutoFrame.getContentPane().add(txtEstoqueDisponivel);
+                adicionarProdutoFrame.getContentPane().add(lblNomeCategoria);
+                adicionarProdutoFrame.getContentPane().add(txtNomeCategoria);
+                adicionarProdutoFrame.getContentPane().add(lblNomeFornecedor);
+                adicionarProdutoFrame.getContentPane().add(txtNomeFornecedor);
+                adicionarProdutoFrame.getContentPane().add(btnSalvar);
+                
+                adicionarProdutoFrame.setVisible(true);
             }
         });
         produtosPanel.add(btnAdicionar);
 
+        
         JButton btnEditar = new JButton("Editar");
-        btnEditar.setBounds(350, 136, 100, 25);
+        btnEditar.setBounds(140, 123, 177, 25);
         btnEditar.setFont(new Font("Arial", Font.BOLD, 14));
         btnEditar.setBackground(new Color(64, 64, 64));
         btnEditar.setForeground(Color.WHITE);
         btnEditar.setFocusPainted(false);
         btnEditar.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        btnEditar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                editarProduto();
-            }
-        });
+     
         produtosPanel.add(btnEditar);
 
         JButton btnRemover = new JButton("Remover");
@@ -119,7 +190,35 @@ public class AplicativoEletronica {
         btnRemover.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         btnRemover.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                removerProduto();
+                JFrame removerProdutoFrame = new JFrame("Remover Produto");
+                removerProdutoFrame.setSize(300, 150);
+                removerProdutoFrame.setLocationRelativeTo(null);  // Centraliza o frame
+                removerProdutoFrame.getContentPane().setLayout(null);  // Define o layout como null
+                
+                JTextField txtSku = new JTextField();
+                
+                JLabel lblSku = new JLabel("SKU:");
+               
+                JButton btnRemoverProduto = new JButton("Remover");
+                btnRemoverProduto.setFont(new Font("Arial", Font.BOLD, 14));
+                btnRemoverProduto.setBackground(new Color(64, 64, 64));
+                btnRemoverProduto.setForeground(Color.WHITE);
+                btnRemoverProduto.setFocusPainted(false);
+                btnRemoverProduto.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+                btnRemoverProduto.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        //codigo de remover produto do rodrigo
+                    }
+                });
+                
+                lblSku.setBounds(10, 10, 100, 25);
+                txtSku.setBounds(120, 10, 150, 25);
+                btnRemoverProduto.setBounds(95, 50, 100, 25);
+                
+                removerProdutoFrame.getContentPane().add(lblSku);
+                removerProdutoFrame.getContentPane().add(txtSku);
+                removerProdutoFrame.getContentPane().add(btnRemoverProduto);
+                removerProdutoFrame.setVisible(true);
             }
         });
         produtosPanel.add(btnRemover);
@@ -279,10 +378,8 @@ public class AplicativoEletronica {
         
         frmEletronicaPikachu.getContentPane().add(content, BorderLayout.CENTER);
         cardLayout.show(content, "MAIN_PANEL");  
-        frmEletronicaPikachu.setVisible(true);
+        frmEletronicaPikachu.setVisible(true);   
     }
-
-	
 
 	private static void adicionarProduto() {
 		return;
